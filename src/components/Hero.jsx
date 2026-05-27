@@ -59,12 +59,12 @@ export function Hero() {
             >
               Contract filling + retail-ready packaging
             </motion.p>
-            <h5 className="hero-title text-[clamp(2rem,4vw,3.5rem)] font-black leading-[0.9] tracking-normal">
+            <h5 className="hero-title text-[clamp(1.5rem,2.5vw,2.3rem)] font-black leading-[0.9] tracking-normal">
               <motion.span className="block" initial={{ y: 120, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.9, ease: [0.2, 0.8, 0.2, 1] }}>
-                Turn your food or pharma product into
+                Your Contract Manufacturing Partner For Better-for-you 
               </motion.span>
               <motion.span className="block text-gradient" initial={{ y: 120, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.12, duration: 0.9, ease: [0.2, 0.8, 0.2, 1] }}>
-                shelf-ready packs.
+                Food Products.
               </motion.span>
             </h5>
             <motion.p

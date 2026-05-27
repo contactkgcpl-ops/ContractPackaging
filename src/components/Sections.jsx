@@ -82,7 +82,7 @@ export function SectionHeader({ kicker, title, copy }) {
   return (
     <motion.div className="mx-auto max-w-3xl text-center" {...reveal}>
       <p className="mb-4 text-[0.68rem] font-bold uppercase tracking-[0.28em] text-emerald-700">{kicker}</p>
-      <h2 className="text-[clamp(1rem,2.5vw,3.5rem)] font-black leading-[0.98] text-slate-950">{title}</h2>
+      <h2 className="text-[clamp(1rem,2vw,3rem)] font-black leading-[0.98] text-slate-950">{title}</h2>
       {copy && <p className="mt-6 text-base leading-7 text-slate-600">{copy}</p>}
     </motion.div>
   )
@@ -92,14 +92,14 @@ function PackagingTypeScroller() {
   const row = [...packagingShowcase, ...packagingShowcase]
 
   return (
-    <div className="mb-16 overflow-hidden rounded-[8px] border border-slate-950/10 bg-white px-3 py-10 shadow-xl shadow-slate-950/5 sm:px-0">
+    <div className="mb-10 overflow-hidden rounded-[8px] border border-slate-950/10 bg-white px-3 py-7 shadow-xl shadow-slate-950/5 sm:px-0">
       <div className="text-center">
         <p className="mb-3 text-[0.68rem] font-bold uppercase tracking-[0.28em] text-emerald-700">Manufacturing formats</p>
         <h2 className="inline-block border-b-2 border-emerald-700 pb-2 text-2xl font-black tracking-wide text-slate-950 sm:text-3xl">
           Packaging Types We Handle
         </h2>
       </div>
-      <div className="packaging-type-track mt-9 flex w-max gap-5">
+      <div className="packaging-type-track mt-6 flex w-max gap-5">
         {row.map((item, index) => (
           <article key={`${item.title}-${index}`} className="w-44 shrink-0 text-center">
             <div className="overflow-hidden rounded-[8px] border border-slate-950/10 bg-slate-50 p-2 shadow-lg shadow-slate-950/5">
@@ -146,7 +146,7 @@ export function AboutSection() {
           title="One packaging partner from product intake to market dispatch."
           copy="Salvin supports food, beverage, nutraceutical, OTC-style pharma, cosmetics and FMCG brands with filling, sealing, labeling, kitting, carton packing and dispatch support. Your team gets fewer vendors, cleaner coordination and packs customers can trust."
         />
-        <div className="mt-12 grid gap-4 md:grid-cols-5">
+        <div className="mt-8 grid gap-4 md:grid-cols-5">
         {timeline.map((item, index) => (
           <motion.div
             key={item.title}
@@ -176,7 +176,7 @@ export function PackagingSection() {
         title="Choose the pack your customer already understands."
         copy="Launch in jars, pouches, bottles, sachets, stick packs, blisters, cartons or vacuum packs. We help match product type, serving size, label needs and retail channel to the right format."
       />
-      <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {packagingTypes.map((item, index) => (
           <motion.article
             key={item.title}
@@ -201,7 +201,7 @@ export function PackagingSection() {
 export function IndustriesSection() {
   const row = [...industries, ...industries]
   return (
-    <section id="industries" className="relative overflow-hidden bg-[#f4f7f5] py-16 text-slate-950 md:py-20">
+    <section id="industries" className="relative overflow-hidden bg-[#f4f7f5] py-10 text-slate-950 md:py-12">
       <img
         src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1600&q=85"
         alt=""
@@ -211,12 +211,12 @@ export function IndustriesSection() {
       <div className="relative z-10 mx-auto w-[min(1120px,calc(100%-32px))]">
         <motion.div {...reveal} className="max-w-3xl">
           <p className="mb-4 text-xs font-bold uppercase tracking-[0.35em] text-emerald-700">Industries served</p>
-          <h2 className="text-[clamp(2rem,4vw,3.5rem)] font-black leading-[0.96]">
+          <h2 className="text-[clamp(1rem,2vw,3rem)] font-black leading-[0.96]">
             Built for brands that need clean packs, clear timelines and fewer handoffs.
           </h2>
         </motion.div>
       </div>
-      <div className="marquee-track relative z-10 mt-10 flex gap-4">
+      <div className="marquee-track relative z-10 mt-7 flex gap-4">
         {row.map((item, index) => (
           <div key={`${item}-${index}`} className="industry-pill min-w-[230px] rounded-[8px] border border-slate-950/10 bg-white px-6 py-6 text-xl font-black shadow-xl shadow-slate-950/5">
             {item}
@@ -231,11 +231,11 @@ export function WorkflowSection() {
   return (
     <section id="workflow" className="workflow-wrap relative bg-[#eef4ef] text-slate-950">
       <div className="workflow-pin section-shell">
-        <div className="grid items-center gap-8 md:min-h-[70vh] lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="grid items-center gap-8 md:min-h-[58vh] lg:grid-cols-[0.9fr_1.1fr]">
           <div>
             <p className="mb-4 hidden text-[0.68rem] font-bold uppercase tracking-[0.28em] text-emerald-700 md:block">Packaging workflow</p>
             <p className="mb-4 text-[0.68rem] font-bold uppercase tracking-[0.22em] text-emerald-700 md:hidden">Simple workflow</p>
-            <h2 className="text-[clamp(2rem,4.5vw,4.5rem)] font-black leading-[0.95]">From product brief to finished cartons.</h2>
+            <h2 className="text-[clamp(1rem,2.5vw,3.5rem))] font-black leading-[0.95]">From product brief to finished cartons.</h2>
             <p className="mt-5 hidden max-w-xl text-base leading-7 text-slate-600 md:block">
               A practical six-step flow keeps scope, materials, filling, branding, checks and dispatch visible from day one.
             </p>
@@ -261,11 +261,11 @@ export function WorkflowSection() {
               </article>
             ))}
           </div>
-          <div className="workflow-stage relative hidden overflow-hidden rounded-[8px] border border-slate-950/10 bg-white p-5 shadow-2xl shadow-slate-950/10 backdrop-blur-xl md:block md:min-h-[460px]">
+          <div className="workflow-stage relative hidden overflow-hidden rounded-[10px] border border-slate-950/10 bg-white p-5 shadow-2xl shadow-slate-950/10 backdrop-blur-xl md:block md:min-h-[460px]">
             {workflowSteps.map((step, index) => (
               <article key={step.title} className="workflow-step absolute inset-0 flex flex-col justify-center p-8 opacity-0">
                 <p className="text-sm font-bold uppercase tracking-[0.28em] text-emerald-700">{step.eyebrow}</p>
-                <h3 className="mt-5 text-[clamp(2rem,6vw,5.4rem)] font-black leading-none">{step.title}</h3>
+                <h3 className="mt-5 text-[clamp(1rem,2vw,3rem)] font-black leading-none">{step.title}</h3>
                 <p className="mt-5 max-w-xl text-base leading-7 text-slate-600">{step.copy}</p>
                 <div className="mt-7 flex items-end gap-4">
                   <span className="counter text-6xl font-black text-gradient" data-target={step.metric}>{step.metric}</span>
@@ -287,7 +287,7 @@ export function WhySection() {
   return (
     <section className="section-shell bg-[#f7faf7]">
       <SectionHeader kicker="Why choose us" title="Less coordination work for your brand team." />
-      <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {features.map((feature) => {
           const Icon = feature.icon
           return (
@@ -307,10 +307,10 @@ export function WhySection() {
 
 export function MachinerySection() {
   return (
-    <section className="bg-[#eef4ef] py-16 md:py-20">
+    <section className="bg-[#eef4ef] py-10 md:py-12">
       <div className="mx-auto w-[min(1180px,calc(100%-32px))]">
         <SectionHeader kicker="Line capabilities" title="Primary and secondary packaging under one plan." />
-        <div className="mt-12 space-y-6">
+        <div className="mt-8 space-y-5">
           {machinery.map((machine) => {
             const Icon = machine.icon
             return (
@@ -321,7 +321,7 @@ export function MachinerySection() {
                   <span className="mb-8 grid h-14 w-14 place-items-center rounded-full border border-white/15 bg-white/10 backdrop-blur-xl">
                     <Icon className="text-cyan-100" />
                   </span>
-                  <h3 className="text-[clamp(1.95rem,5vw,4.6rem)] font-black leading-none text-white">{machine.title}</h3>
+                  <h3 className="text-[clamp(1rem,2vw,3rem)] font-black leading-none text-white">{machine.title}</h3>
                   <p className="mt-6 text-base leading-7 text-slate-200 md:text-lg md:leading-8">{machine.copy}</p>
                 </div>
                 <div className="floating-label absolute right-4 top-4 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-bold text-white backdrop-blur-xl md:right-6 md:top-6 md:px-5 md:py-3 md:text-sm">
@@ -338,9 +338,9 @@ export function MachinerySection() {
 
 export function TestimonialsSection() {
   return (
-    <section className="overflow-hidden bg-[#f7faf7] py-16 text-slate-950 md:py-20">
+    <section className="overflow-hidden bg-[#f7faf7] py-10 text-slate-950 md:py-12">
       <SectionHeader kicker="Customer fit" title="Made for teams launching or scaling SKUs." />
-      <div className="testimonial-track mt-10 flex gap-4">
+      <div className="testimonial-track mt-7 flex gap-4">
         {[...testimonials, ...testimonials].map((item, index) => (
           <blockquote key={`${item.name}-${index}`} className="min-w-[280px] rounded-[8px] border border-slate-950/10 bg-white p-5 shadow-xl shadow-slate-950/5 backdrop-blur-xl sm:min-w-[340px] md:min-w-[460px] md:p-7">
             <Sparkles className="mb-8 text-emerald-700" />
@@ -359,7 +359,7 @@ export function ContactSection() {
       <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
         <div>
           <p className="mb-4 text-xs font-bold uppercase tracking-[0.35em] text-emerald-700">Contact</p>
-          <h2 className="text-[clamp(2rem,5.5vw,5rem)] font-black leading-[0.95]">Tell us what you need packed.</h2>
+          <h2 className="text-[clamp(1rem,2.5vw,3.5rem)] font-black leading-[0.95]">Tell us what you need packed.</h2>
           <p className="mt-5 text-base leading-7 text-slate-600">
             Share product type, expected volume, pack format and launch timing. Salvin maps material needs, line flow and dispatch plan.
           </p>
@@ -385,7 +385,7 @@ export function ContactSection() {
           </button>
         </form>
       </div>
-      <div className="mt-10 overflow-hidden rounded-[8px] border border-slate-950/10 bg-white p-5 text-slate-950 shadow-xl shadow-slate-950/5">
+      <div className="mt-7 overflow-hidden rounded-[8px] border border-slate-950/10 bg-white p-5 text-slate-950 shadow-xl shadow-slate-950/5">
         <div className="map-grid grid min-h-[280px] place-items-center rounded-[8px] border border-slate-950/10">
           <div className="text-center">
             <Factory className="mx-auto mb-4 text-emerald-700" size={42} />
@@ -394,8 +394,8 @@ export function ContactSection() {
           </div>
         </div>
       </div>
-      <div className="mt-10 rounded-[8px] bg-slate-950 p-7 text-white md:flex md:items-center md:justify-between">
-        <h3 className="max-w-2xl text-2xl font-black md:text-4xl">Need food, wellness or pharma-style packs ready for market?</h3>
+      <div className="mt-7 rounded-[8px] bg-slate-950 p-7 text-white md:flex md:items-center md:justify-between">
+        <h3 className="max-w-xl text-xl font-black md:text-4xl">Need food, wellness or pharma-style packs ready for market?</h3>
         <div className="mt-8 md:mt-0"><MagneticButton>Plan my pack</MagneticButton></div>
       </div>
     </section>
@@ -483,7 +483,7 @@ export function Footer() {
 
 export function StrategySection() {
   return (
-    <section className="bg-[#eef4ef] py-20 text-slate-950">
+    <section className="bg-[#eef4ef] py-12 text-slate-950">
       <div className="mx-auto w-[min(1120px,calc(100%-32px))] rounded-[8px] border border-slate-950/10 bg-white p-8 shadow-xl shadow-slate-950/5">
         <h2 className="text-3xl font-black">Build Notes</h2>
         <div className="mt-6 grid gap-3 md:grid-cols-2">
