@@ -23,6 +23,7 @@ export const navItems = [
   { label: 'Packaging', href: '#packaging' },
   { label: 'Industries', href: '#industries' },
   { label: 'Workflow', href: '#workflow' },
+  { label: 'Projects', href: '#projects' },
   { label: 'Contact', href: '#contact' },
 ]
 

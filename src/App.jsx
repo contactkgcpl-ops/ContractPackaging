@@ -10,6 +10,7 @@ import {
   IndustriesSection,
   MachinerySection,
   PackagingSection,
+  ProjectsSection,
   TestimonialsSection,
   WhySection,
   WorkflowSection,
@@ -39,6 +40,7 @@ const App = () => {
         <AboutSection />
         <PackagingSection />
         <IndustriesSection />
+        <ProjectsSection />
         <WorkflowSection />
         <WhySection />
         <MachinerySection />

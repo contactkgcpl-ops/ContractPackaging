@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
-import { Factory, Mail, MapPin, Phone, Sparkles } from 'lucide-react'
+import { FiDownload } from 'react-icons/fi'
+import { Blend, DraftingCompass, Factory, Flame, Headphones, Layers3, Lightbulb, Mail, MapPin, Package, Phone, PlugZap, Scissors, Sparkles, Sprout, SunMedium, TestTube2, Wheat, Wrench } from 'lucide-react'
 import {
   features,
   industries,
@@ -23,12 +24,27 @@ import trayImg from '../assets/pack/tray.png'
 import shrinkWrapImg from '../assets/pack/minbottle.png'
 import pack from '../assets/wedo/pack1.png'
 import dispatch from '../assets/wedo/dispatch.jpg'
+import peanutButterImg from '../assets/projects/peanut-butter.png'
+import peanutButterChocoImg from '../assets/projects/peanut-butter-choco.png'
+import proteinPowderImg from '../assets/projects/protein-powder.png'
+import proteinPowdersAltImg from '../assets/projects/protein-powders-alt.png'
+import datePowderImg from '../assets/projects/date-powder.png'
+import proteinBarImg from '../assets/projects/protein-bar.png'
 
 const reveal = {
   initial: { opacity: 0, y: 50 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: '-80px' },
   transition: { duration: 0.75, ease: [0.2, 0.8, 0.2, 1] },
+}
+
+const handleDownload = (file, title) => {
+  const link = document.createElement('a')
+  link.href = file
+  link.download = `${title}.jpg`
+  document.body.appendChild(link)
+  link.click()
+  document.body.removeChild(link)
 }
 
 const packagingShowcase = [
@@ -227,6 +243,170 @@ export function IndustriesSection() {
   )
 }
 
+export function ProjectsSection() {
+  const showcaseCards = [
+    {
+      title: 'Peanut Butter Contract Packaging',
+      image: peanutButterImg,
+      brochure: peanutButterImg,
+      copy: 'End-to-end contract packaging for peanut butter SKUs, including filling, sealing, labeling and shelf-ready carton packing.',
+    },
+    {
+      title: 'Choco Hazelnut Peanut Butter Packaging',
+      image: peanutButterChocoImg,
+      brochure: peanutButterChocoImg,
+      copy: 'Contract packaging support for choco hazelnut peanut butter, with clean filling, secure sealing and retail-ready presentation.',
+    },
+    {
+      title: 'Protein Powder Contract Manufacturing',
+      image: proteinPowderImg,
+      brochure: proteinPowderImg,
+      copy: 'Contract manufacturing and packaging for protein powder brands, covering blending support, filling, sealing and branded finish.',
+    },
+    {
+      title: 'Protein Bar Contract Packaging',
+      image: proteinBarImg,
+      brochure: proteinBarImg,
+      copy: 'Reliable contract packaging for protein bars, with consistent wrapping, carton packing and dispatch-ready presentation.',
+    },
+    {
+      title: 'Date Powder Processing & Packaging',
+      image: datePowderImg,
+      brochure: datePowderImg,
+      copy: 'Processing and packaging support for date powder products, with controlled handling, hygienic filling and clean branding.',
+    },
+    {
+      title: 'Nutritional Powder Contract Packaging',
+      image: proteinPowdersAltImg,
+      brochure: proteinPowdersAltImg,
+      copy: 'Contract packaging for nutritional powders, including accurate filling, sealing, labeling and shelf-ready dispatch preparation.',
+    },
+  ]
+
+  const implementationSteps = [
+    {
+      title: 'Design',
+      copy: 'Conceptualizing the ideal processing and packaging flow.',
+      icon: Lightbulb,
+    },
+    {
+      title: 'Build',
+      copy: 'High-precision manufacturing of core systems.',
+      icon: DraftingCompass,
+    },
+    {
+      title: 'Testing',
+      copy: 'Rigorous validation and performance verification.',
+      icon: TestTube2,
+    },
+    {
+      title: 'Installation',
+      copy: 'Seamless on-site setup and integration.',
+      icon: PlugZap,
+    },
+    {
+      title: 'Training',
+      copy: 'Operator training and process guidance.',
+      icon: Headphones,
+    },
+    {
+      title: 'Support',
+      copy: 'Continuous maintenance and technical support.',
+      icon: Wrench,
+    },
+  ]
+
+  return (
+    <section id="projects" className="bg-[#f5f7f7] py-12 md:py-16">
+      <div className="mx-auto w-[min(1200px,calc(100%-32px))]">
+        <motion.div {...reveal} className="mx-auto max-w-3xl text-center">
+          <p className="mb-4 text-[0.68rem] font-bold uppercase tracking-[0.3em] text-emerald-700">Project Portfolio</p>
+          <h2 className="text-[28px] font-black leading-[0.96] text-slate-950 md:text-[34px] lg:text-[42px]">
+            Contract Packaging & Turnkey Production Projects
+          </h2>
+          <p className="mt-5 text-[13px] leading-7 text-slate-600">
+            Explore selected packaging, processing and automation projects developed by Salvin Industries. From filling and labeling systems to complete turnkey production lines, these solutions show how we support food, nutraceutical, pharma-style and FMCG brands.
+          </p>
+        </motion.div>
+
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {showcaseCards.map((card) => (
+            <motion.article
+              key={card.title}
+              className="group flex h-full min-h-[430px] flex-col overflow-hidden rounded-[8px] border border-slate-950/10 bg-white shadow-xl shadow-slate-950/5 transition duration-300 hover:-translate-y-1 hover:shadow-[0_26px_70px_rgba(15,23,42,0.12)]"
+              initial={{ opacity: 0, y: 34 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.5, ease: [0.2, 0.8, 0.2, 1] }}
+            >
+              <div className="flex h-[18rem] items-center justify-center overflow-hidden bg-[#f7f7f7] p-6 sm:h-[19rem] sm:p-7">
+                <img
+                  src={card.image}
+                  alt={card.title}
+                  loading="lazy"
+                  className="h-full w-full object-contain transition duration-700 group-hover:scale-100"
+                />
+              </div>
+              <div className="flex flex-1 flex-col p-5">
+                <h3 className="text-xl font-black leading-7 text-slate-950">{card.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-slate-600">{card.copy}</p>
+                <div className="mt-auto pt-6">
+                  <button
+                    type="button"
+                    onClick={() => handleDownload(card.brochure, card.title)}
+                    className="download-btn cursor-pointer inline-flex w-full items-center justify-center rounded-[8px] bg-[#ff8a00] px-5 py-3 text-sm font-bold uppercase tracking-[0.14em] text-white shadow-[0_14px_26px_rgba(255,138,0,0.26)] transition duration-300 hover:bg-[#e87800]"
+                  >
+                    Download Brochure
+                    <FiDownload className="download-icon" size={16} />
+                  </button>
+                </div>
+              </div>
+            </motion.article>
+          ))}
+        </div>
+
+        <motion.div {...reveal} className="mt-16">
+          <div>
+            <p className="implementation-process-badge inline-flex rounded-full border border-emerald-700/15 bg-white font-bold uppercase tracking-[0.26em] text-emerald-700 shadow-sm shadow-slate-950/5">
+              Our Implementation Process
+            </p>
+            <h2 className="implementation-process-heading text-slate-950">
+              From Concept To Commissioning – We Deliver End To End
+            </h2>
+            <p className="implementation-process-description text-slate-600">
+              Every Salvin project follows a structured implementation process to ensure quality, efficiency, timely delivery and long-term performance.
+            </p>
+          </div>
+
+          <div className="implementation-process-cards grid sm:grid-cols-2 lg:grid-cols-3">
+            {implementationSteps.map((step, index) => {
+              const Icon = step.icon
+              const number = String(index + 1).padStart(2, '0')
+
+              return (
+                <motion.article
+                  key={step.title}
+                  className="group min-h-[185px] rounded-[8px] border border-slate-950/10 border-b-[3px] border-b-emerald-700 bg-[#f4f4f4] p-5 shadow-xl shadow-slate-950/5 transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(15,23,42,0.1)]"
+                  initial={{ opacity: 0, y: 28 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-70px' }}
+                  transition={{ duration: 0.45, delay: index * 0.04 }}
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <Icon className="mt-1 text-emerald-700" size={20} strokeWidth={2.1} />
+                    <span className="text-[2.3rem] font-black leading-none text-slate-300">{number}</span>
+                  </div>
+                  <h3 className="mt-8 text-lg font-black text-slate-950">{step.title}</h3>
+                  <p className="mt-3 max-w-[20rem] text-sm leading-6 text-slate-600">{step.copy}</p>
+                </motion.article>
+              )
+            })}
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
 export function WorkflowSection() {
   return (
     <section id="workflow" className="workflow-wrap relative bg-[#eef4ef] text-slate-950">
@@ -495,3 +675,4 @@ export function StrategySection() {
     </section>
   )
 }
+

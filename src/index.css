@@ -503,3 +503,64 @@ img {
     min-width: auto;
   }
 }
+
+.download-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.download-icon {
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.download-btn:hover .download-icon {
+  transform: translateX(4px);
+}
+
+.implementation-process-badge {
+  margin-bottom: 24px;
+  font-size: 11px;
+  padding: 8px 18px;
+}
+
+.implementation-process-heading {
+  margin-bottom: 32px;
+  max-width: 900px;
+  line-height: 1.15;
+  font-weight: 800;
+  font-size: 24px;
+}
+
+.implementation-process-description {
+  margin-bottom: 50px;
+  max-width: 650px;
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+.implementation-process-cards {
+  margin-top: 30px;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .implementation-process-heading {
+    font-size: 30px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .implementation-process-heading {
+    font-size: 34px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .implementation-process-heading {
+    font-size: 38px;
+  }
+}
