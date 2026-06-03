@@ -19,12 +19,12 @@ import blister from '../assets/packing/blist.jpg'
 import vacuum from '../assets/packing/vacuum.jpg'
 
 export const navItems = [
-  { label: 'About', href: '#about' },
-  { label: 'Packaging', href: '#packaging' },
-  { label: 'Industries', href: '#industries' },
-  { label: 'Workflow', href: '#workflow' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'About', href: '/#about' },
+  { label: 'Packaging', href: '/#packaging' },
+  { label: 'Industries', href: '/#industries' },
+  { label: 'Workflow', href: '/#workflow' },
+  { label: 'Projects', href: '/projects', route: true },
+  { label: 'Contact', href: '/#contact' },
 ]
 
 export const packagingTypes = [

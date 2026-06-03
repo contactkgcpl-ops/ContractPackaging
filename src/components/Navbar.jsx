@@ -1,10 +1,28 @@
 import { useEffect, useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { Menu, PackageCheck, X } from 'lucide-react'
 import { navItems } from '../data/siteData'
+
+function NavItem({ item, className, onNavigate }) {
+  if (item.route) {
+    return (
+      <Link className={className} to={item.href} onClick={onNavigate}>
+        {item.label}
+      </Link>
+    )
+  }
+
+  return (
+    <a className={className} href={item.href} onClick={onNavigate}>
+      {item.label}
+    </a>
+  )
+}
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const location = useLocation()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
@@ -38,21 +56,25 @@ export function Navbar() {
       }`}
     >
       <nav className="flex items-center justify-between px-4 py-3 md:px-6">
-        <a href="#top" className="flex min-w-0 items-center gap-3" onClick={() => setOpen(false)}>
+        <Link to="/" className="flex min-w-0 items-center gap-3" onClick={() => setOpen(false)}>
           <span className="grid h-10 w-10 place-items-center rounded-full bg-slate-950 text-white">
             <PackageCheck size={20} />
           </span>
           <span className="truncate text-sm font-bold tracking-wide text-slate-950">Salvin Contract Packaging</span>
-        </a>
+        </Link>
         <div className="hidden items-center gap-7 md:flex">
           {navItems.map((item) => (
-            <a key={item.href} className="nav-link text-sm text-slate-600 hover:text-slate-950" href={item.href}>
-              {item.label}
-            </a>
+            <NavItem
+              key={item.href}
+              item={item}
+              className={`nav-link text-sm hover:text-slate-950 ${
+                item.route && location.pathname === item.href ? 'text-slate-950' : 'text-slate-600'
+              }`}
+            />
           ))}
         </div>
         <a
-          href="#contact"
+          href="/#contact"
           className="hidden rounded-full bg-slate-950 px-4 py-2 text-sm font-semibold text-white transition hover:bg-emerald-700 md:inline-flex"
         >
           Start project
@@ -77,17 +99,15 @@ export function Navbar() {
         <div className="min-h-0">
           <div className="grid gap-2 border-t border-slate-950/10 pt-3">
             {navItems.map((item) => (
-              <a
+              <NavItem
                 key={item.href}
+                item={item}
                 className="rounded-[8px] px-3 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-950/5 hover:text-slate-950"
-                href={item.href}
-                onClick={() => setOpen(false)}
-              >
-                {item.label}
-              </a>
+                onNavigate={() => setOpen(false)}
+              />
             ))}
             <a
-              href="#contact"
+              href="/#contact"
               className="mt-1 inline-flex items-center justify-center rounded-full bg-slate-950 px-4 py-3 text-sm font-semibold text-white transition hover:bg-emerald-700"
               onClick={() => setOpen(false)}
             >

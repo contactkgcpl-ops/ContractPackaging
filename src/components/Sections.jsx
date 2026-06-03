@@ -24,7 +24,7 @@ import trayImg from '../assets/pack/tray.png'
 import shrinkWrapImg from '../assets/pack/minbottle.png'
 import pack from '../assets/wedo/pack1.png'
 import dispatch from '../assets/wedo/dispatch.jpg'
-import peanutButterImg from '../assets/projects/peanut-butter.png'
+import peanutButterImg from '../assets/projects/peanut-butters.png'
 import peanutButterChocoImg from '../assets/projects/peanut-butter-choco.png'
 import proteinPowderImg from '../assets/projects/protein-powder.png'
 import proteinPowdersAltImg from '../assets/projects/protein-powders-alt.png'
@@ -626,7 +626,7 @@ export function Footer() {
           <a href="#packaging">Bottle & Jar Filling</a>
           <a href="#packaging">Blister & Carton Packing</a>
           <a href="#workflow">Labeling & Batch Coding</a>
-          <a href="#contact">Kitting & Dispatch</a>
+          <a href="/#contact">Kitting & Dispatch</a>
         </div>
 
         <div className="footer-links-col">
@@ -641,12 +641,12 @@ export function Footer() {
 
         <div className="footer-links-col">
           <h4>COMPANY</h4>
-          <a href="#about">About Us</a>
+          <a href="/#about">About Us</a>
           <a href="#workflow">How It Works</a>
           <a href="#packaging">Pack Formats</a>
-          <a href="#contact">Contact Us</a>
-          <a href="#contact">Request Quote</a>
-          <a href="#contact">Visit Facility</a>
+          <a href="/#contact">Contact Us</a>
+          <a href="/#contact">Request Quote</a>
+          <a href="/#contact">Visit Facility</a>
         </div>
       </div>
 
