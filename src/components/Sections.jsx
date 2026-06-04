@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
-import { FiDownload } from 'react-icons/fi'
-import { Blend, DraftingCompass, Factory, Flame, Headphones, Layers3, Lightbulb, Mail, MapPin, Package, Phone, PlugZap, Scissors, Sparkles, Sprout, SunMedium, TestTube2, Wheat, Wrench } from 'lucide-react'
+import { Blend, DraftingCompass, Factory, Flame, Headphones, Layers3, Lightbulb, Mail, MapPin, MessageCircle, Package, Phone, PlugZap, Scissors, Sparkles, Sprout, SunMedium, TestTube2, Wheat, Wrench } from 'lucide-react'
 import {
   features,
   industries,
@@ -25,8 +24,8 @@ import shrinkWrapImg from '../assets/pack/minbottle.png'
 import pack from '../assets/wedo/pack1.png'
 import dispatch from '../assets/wedo/dispatch.jpg'
 import peanutButterImg from '../assets/projects/peanut-butters.png'
-import peanutButterChocoImg from '../assets/projects/peanut-butter-choco.png'
-import proteinPowderImg from '../assets/projects/protein-powder.png'
+import instantFoodImg from '../assets/projects/instant-food.png'
+import frozenFoodImg from '../assets/projects/frozen-food.png'
 import proteinPowdersAltImg from '../assets/projects/protein-powders-alt.png'
 import datePowderImg from '../assets/projects/date-powder.png'
 import proteinBarImg from '../assets/projects/protein-bar.png'
@@ -38,14 +37,7 @@ const reveal = {
   transition: { duration: 0.75, ease: [0.2, 0.8, 0.2, 1] },
 }
 
-const handleDownload = (file, title) => {
-  const link = document.createElement('a')
-  link.href = file
-  link.download = `${title}.jpg`
-  document.body.appendChild(link)
-  link.click()
-  document.body.removeChild(link)
-}
+
 
 const packagingShowcase = [
   {
@@ -163,20 +155,20 @@ export function AboutSection() {
           copy="Salvin supports food, beverage, nutraceutical, OTC-style pharma, cosmetics and FMCG brands with filling, sealing, labeling, kitting, carton packing and dispatch support. Your team gets fewer vendors, cleaner coordination and packs customers can trust."
         />
         <div className="mt-8 grid gap-4 md:grid-cols-5">
-        {timeline.map((item, index) => (
-          <motion.div
-            key={item.title}
-            className="timeline-card relative overflow-hidden rounded-[8px] border border-slate-950/10 bg-white p-3 shadow-xl shadow-slate-950/5 backdrop-blur-xl"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.08 }}
-          >
-            <img src={item.image} alt={`${item.title} process`} loading="lazy" className="h-28 w-full rounded-[6px] object-cover" />
-            <span className="mt-4 block text-sm text-emerald-700">0{index + 1}</span>
-            <h3 className="mt-2 text-xl font-black text-slate-950">{item.title}</h3>
-          </motion.div>
-        ))}
+          {timeline.map((item, index) => (
+            <motion.div
+              key={item.title}
+              className="timeline-card relative overflow-hidden rounded-[8px] border border-slate-950/10 bg-white p-3 shadow-xl shadow-slate-950/5 backdrop-blur-xl"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.08 }}
+            >
+              <img src={item.image} alt={`${item.title} process`} loading="lazy" className="h-28 w-full rounded-[6px] object-cover" />
+              <span className="mt-4 block text-sm text-emerald-700">0{index + 1}</span>
+              <h3 className="mt-2 text-xl font-black text-slate-950">{item.title}</h3>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
@@ -248,37 +240,31 @@ export function ProjectsSection() {
     {
       title: 'Peanut Butter Contract Packaging',
       image: peanutButterImg,
-      brochure: peanutButterImg,
       copy: 'End-to-end contract packaging for peanut butter SKUs, including filling, sealing, labeling and shelf-ready carton packing.',
     },
     {
-      title: 'Choco Hazelnut Peanut Butter Packaging',
-      image: peanutButterChocoImg,
-      brochure: peanutButterChocoImg,
-      copy: 'Contract packaging support for choco hazelnut peanut butter, with clean filling, secure sealing and retail-ready presentation.',
+      title: 'Instant Food Contract Packaging',
+      image: instantFoodImg,
+      copy: 'Complete contract packaging solutions for instant food products including cup filling, sealing, labeling and retail-ready packaging.',
     },
     {
-      title: 'Protein Powder Contract Manufacturing',
-      image: proteinPowderImg,
-      brochure: proteinPowderImg,
-      copy: 'Contract manufacturing and packaging for protein powder brands, covering blending support, filling, sealing and branded finish.',
+      title: 'Frozen Food Contract Packaging',
+      image: frozenFoodImg,
+      copy: 'End-to-end frozen food packaging solutions with hygienic processing, sealing, storage-ready packaging and brand customization.',
     },
     {
       title: 'Protein Bar Contract Packaging',
       image: proteinBarImg,
-      brochure: proteinBarImg,
       copy: 'Reliable contract packaging for protein bars, with consistent wrapping, carton packing and dispatch-ready presentation.',
     },
     {
       title: 'Date Powder Processing & Packaging',
       image: datePowderImg,
-      brochure: datePowderImg,
       copy: 'Processing and packaging support for date powder products, with controlled handling, hygienic filling and clean branding.',
     },
     {
       title: 'Nutritional Powder Contract Packaging',
       image: proteinPowdersAltImg,
-      brochure: proteinPowdersAltImg,
       copy: 'Contract packaging for nutritional powders, including accurate filling, sealing, labeling and shelf-ready dispatch preparation.',
     },
   ]
@@ -351,14 +337,20 @@ export function ProjectsSection() {
                 <h3 className="text-xl font-black leading-7 text-slate-950">{card.title}</h3>
                 <p className="mt-3 text-sm leading-6 text-slate-600">{card.copy}</p>
                 <div className="mt-auto pt-6">
-                  <button
-                    type="button"
-                    onClick={() => handleDownload(card.brochure, card.title)}
+                  <a
+                    href={`https://wa.me/919898727796?text=${encodeURIComponent(`Hello,
+
+I am interested in:
+${card.title}
+
+Please share more details.`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="download-btn cursor-pointer inline-flex w-full items-center justify-center rounded-[8px] bg-[#ff8a00] px-5 py-3 text-sm font-bold uppercase tracking-[0.14em] text-white shadow-[0_14px_26px_rgba(255,138,0,0.26)] transition duration-300 hover:bg-[#e87800]"
                   >
-                    Download Brochure
-                    <FiDownload className="download-icon" size={16} />
-                  </button>
+                    WHATSAPP INQUIRY
+                    <MessageCircle className="download-icon" size={16} />
+                  </a>
                 </div>
               </div>
             </motion.article>
